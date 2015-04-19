@@ -1,15 +1,16 @@
 var Controller = require('./base/controller'),
+    HeaderView = require('../views/home/header-view'),
+    HomePageView = require('../views/home/home-page-view'),
+    __parent = Controller.prototype,
     HomeController;
 
-module.exports = Controller = Controller.extend({
+module.exports = HomeController = Controller.extend({
   beforeAction: function() {
-    // TODO: implement super!
-    // super
-    // TODO: create HeaderView after implementing SiteView and composing it in base controller
-    // this.compose('header', HeaderView, {region: 'header'});
+    __parent.beforeAction.apply(this, arguments);
+    this.reuse('header', HeaderView, {region: 'header'});
   },
+
   index: function() {
-    // TODO: implement HomePageView
-    // this.view = new HomePageView({region: 'main'});
+    this.view = new HomePageView({region: 'main'});
   }
 });

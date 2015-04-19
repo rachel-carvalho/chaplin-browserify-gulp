@@ -1,11 +1,12 @@
 var Chaplin = require('chaplin'),
+    SiteView = require('../../views/site-view'),
     Controller;
 
 module.exports = Controller = Chaplin.Controller.extend({
-  // Compositions persist stuff between controllers.
+  // `reuse` persists stuff between controllers.
   // You may also persist models etc.
   beforeAction: function() {
-    // TODO: compose siteview
-    // return this.compose('site', SiteView);
+    console.log('Controller');
+    return this.reuse('site', SiteView);
   }
 });

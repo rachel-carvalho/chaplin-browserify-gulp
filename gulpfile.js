@@ -21,8 +21,6 @@ var gulp = require('gulp'),
         });
     };
 
-// console.log(readControllers('./src/js/controllers'));
-
 gulp.task('js:browserify', function() {
   return browserify({
       entries: ['./src/js/initialize.js'],
